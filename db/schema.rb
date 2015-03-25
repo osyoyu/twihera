@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325094953) do
+ActiveRecord::Schema.define(version: 20150325180139) do
 
   create_table "tweets", force: :cascade do |t|
     t.integer  "twitter_id"
@@ -25,8 +25,12 @@ ActiveRecord::Schema.define(version: 20150325094953) do
   create_table "twitter_accounts", force: :cascade do |t|
     t.integer  "twitter_id"
     t.integer  "screen_name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "twitter_api_consumer_key"
+    t.string   "twitter_api_consumer_secret"
+    t.string   "twitter_api_access_token"
+    t.string   "twitter_api_access_token_secret"
   end
 
 end
