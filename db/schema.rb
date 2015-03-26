@@ -11,22 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325180139) do
+ActiveRecord::Schema.define(version: 20150326043231) do
 
   create_table "tweets", force: :cascade do |t|
-    t.integer  "twitter_id"
+    t.integer  "twitter_id",         limit: 8
     t.integer  "twitter_account_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.text     "raw_json"
   end
 
   add_index "tweets", ["twitter_account_id"], name: "index_tweets_on_twitter_account_id"
 
   create_table "twitter_accounts", force: :cascade do |t|
-    t.integer  "twitter_id"
-    t.integer  "screen_name"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.integer  "twitter_id",                      limit: 8
+    t.string   "screen_name"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "twitter_api_consumer_key"
     t.string   "twitter_api_consumer_secret"
     t.string   "twitter_api_access_token"
